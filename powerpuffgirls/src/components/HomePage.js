@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getshow } from '../actions/showactions'; 
+import { getshow, getepisode } from '../actions/showactions'; 
 import { connect } from 'react-redux';
 import ShowDetailPage from './ShowDetailPage'; 
 
@@ -7,12 +7,13 @@ class HomePage extends Component{
 
     componentDidMount(){
         this.props.getshow();
+        this.props.getepisode();
     }
 
     render(){
         return(
             <React.Fragment>
-                <ShowDetailPage detail={this.props.details} />
+                <ShowDetailPage detail={this.props.details} episode={this.props.episodes}/>
             </React.Fragment>
         )
     }
@@ -21,8 +22,9 @@ class HomePage extends Component{
 
 const mapStateToProps = (state) => {
     return{
-        details: state.showDetail
+        details: state.showDetail,
+        episodes: state.episodeList
     }
 }
 
-export default connect(mapStateToProps,{getshow})(HomePage)
+export default connect(mapStateToProps,{ getshow, getepisode })(HomePage)

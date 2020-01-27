@@ -1,19 +1,21 @@
 import React, { Component } from 'react';
-import { getshow, getepisode } from '../actions/showactions'; 
+import { getshow, getepisodelist } from '../actions/showactions'; 
 import { connect } from 'react-redux';
 import ShowDetailPage from './ShowDetailPage'; 
+import EpisodeListPage from './EpisodeListPage';
 
 class HomePage extends Component{
 
     componentDidMount(){
         this.props.getshow();
-        this.props.getepisode();
+        this.props.getepisodelist();
     }
 
     render(){
         return(
             <React.Fragment>
-                <ShowDetailPage detail={this.props.details} episode={this.props.episodes}/>
+                <ShowDetailPage detail={this.props.details} />
+                <EpisodeListPage  episode={this.props.episodes} />
             </React.Fragment>
         )
     }
@@ -27,4 +29,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps,{ getshow, getepisode })(HomePage)
+export default connect(mapStateToProps,{ getshow, getepisodelist })(HomePage)

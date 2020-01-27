@@ -9,10 +9,17 @@ const fetchedShow = (data) => {
     })
 }
 
-const fetchedEpisode = (data) => {
+const fetchedEpisodeList = (data) => {
     return({
         type: EPISODE_LIST,
         data
+    })
+}
+
+const fetchEpisodeDetail = (id) => {
+    return({
+        type: EPISODE_DETAIL,
+        id
     })
 }
 
@@ -26,14 +33,19 @@ export const getshow = () => (dispatch) => {
 }
 
 
-export const getepisode = () => (dispatch) => {
+export const getepisodelist = () => (dispatch) => {
     request 
       .get(`${url}/shows/${showid}/episodes`)
       .then(response => {
           console.log("Episode Response",response.body)
-          dispatch(fetchedEpisode(response.body))
+          dispatch(fetchedEpisodeList(response.body))
       })
+}
+
+export const episodedetail = (episodeId) => (dispatch) => {
+    dispatch(fetchEpisodeDetail(episodeId))
 }
  
 export const SHOW_DETAILS = 'SHOW_DETAILS';
 export const EPISODE_LIST = 'EPISODE_LIST';
+export const EPISODE_DETAIL = 'EPISODE_DETAIL';

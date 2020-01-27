@@ -1,13 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Route } from 'react-router-dom'
-import HomePage from './components/HomePage'
+import { Route } from 'react-router-dom';
+import HomePage from './components/HomePage';
+import EpisodeDetailPage from './components/EpisodeDetailPage'
 
 function App() {
   return (
     <div className="App">
        <Route path="/" exact component={HomePage} />
+       <Route path="/episode/:id" component={EpisodeDetailPage} />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { episodedetail } from '../actions/showactions'
+import { episodedetail } from '../actions/actions'
 import { connect } from 'react-redux';
 import ReactHtmlParser from 'react-html-parser';
 

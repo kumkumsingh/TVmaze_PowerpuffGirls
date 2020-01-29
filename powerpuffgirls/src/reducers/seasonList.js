@@ -1,8 +1,8 @@
-import {SHOW_DETAILS} from '../actions/actions';
+import {SEASON_LIST} from '../actions/actions';
 
-const reducer = (state = {}, action = {}) => {
+const reducer = (state = [], action = {}) => {
    switch(action.type){
-        case SHOW_DETAILS:
+        case SEASON_LIST:
             return action.data
         default:
             return state

@@ -23,6 +23,13 @@ const fetchEpisodeDetail = (id) => {
     })
 }
 
+const fetchedSeason = (data) => {
+    return({
+        type: SEASON_LIST,
+        data
+    })
+}
+
 export const getshow = () => (dispatch) => {
     request
       .get(`${url}/shows/${showid}`)
@@ -32,10 +39,18 @@ export const getshow = () => (dispatch) => {
       })
 }
 
-
-export const getepisodelist = () => (dispatch) => {
+export const getseason = (showid) => (dispatch) => {
     request 
-      .get(`${url}/shows/${showid}/episodes`)
+       .get(`${url}/shows/${showid}/seasons`)
+       .then(response => {
+           console.log("Seasons", response.body)
+           dispatch(fetchedSeason(response.body))
+       })
+}
+
+export const getepisodelist = (seasonid) => (dispatch) => {
+    request 
+      .get(`${url}/seasons/${seasonid}/episodes`)
       .then(response => {
           console.log("Episode Response",response.body)
           dispatch(fetchedEpisodeList(response.body))
@@ -45,7 +60,9 @@ export const getepisodelist = () => (dispatch) => {
 export const episodedetail = (episodeId) => (dispatch) => {
     dispatch(fetchEpisodeDetail(episodeId))
 }
+
  
 export const SHOW_DETAILS = 'SHOW_DETAILS';
 export const EPISODE_LIST = 'EPISODE_LIST';
 export const EPISODE_DETAIL = 'EPISODE_DETAIL';
+export const SEASON_LIST = 'SEASON_LIST';

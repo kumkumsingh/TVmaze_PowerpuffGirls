@@ -1,4 +1,4 @@
-import { EPISODE_LIST, EPISODE_DETAIL} from '../actions/showactions';
+import { EPISODE_LIST, EPISODE_DETAIL} from '../actions/actions';
 
 const reducer = (state = null, action = {}) => {
    switch(action.type){

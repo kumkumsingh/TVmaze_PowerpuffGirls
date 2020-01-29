@@ -1,15 +1,27 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default function EpisodeListPage(props){
-    return(
-        <React.Fragment>
+class EpisodeListPage extends Component{
 
-                {props.episode && props.episode.map(episode => {
-                   return <li key={episode.id} >
+   
+    render(){
+        return(
+            <React.Fragment>
+                         {this.props.episode && this.props.episode.map((episode) => {
+                             return <li key={episode.id} >
                              <Link to={`/episode/${episode.id}`}>{episode.name}</Link> 
                           </li>
-                })}
-        </React.Fragment>
-    )
+                         })}
+             </React.Fragment>
+        )
+    }
 }
+
+const mapStateToProps = (state) => {
+    return{
+        episode: state.episodeList,
+    }
+}
+
+export default connect(mapStateToProps)(EpisodeListPage)

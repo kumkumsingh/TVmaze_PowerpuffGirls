@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux';
-import showDetail from './showDetail';
+import showDetails from './showDetails';
 import episodeList from './episodeList';
 import seasonList from './seasonList';
+import episodeDetails from './episodeDetails';
+import showList from './showList';
 
 export default combineReducers({
-  showDetail,
+  showDetails,
   episodeList,
-  seasonList
+  seasonList,
+  episodeDetails,
+  showList
 })

@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
-import { getshow } from '../actions/actions'; 
+import { getshowlist } from '../actions/actions'; 
 import { connect } from 'react-redux';
-import ShowDetailPage from './ShowDetailPage'; 
+import ShowListPage from './ShowListPage'; 
+import {showName} from '../constants'
 
 class HomePage extends Component{
 
     componentDidMount(){
-        this.props.getshow();
+        this.props.getshowlist(showName);
     }
 
     render(){
         return(
             <React.Fragment>
-                <ShowDetailPage detail={this.props.details} />
+                <ShowListPage shows={this.props.shows} />
             </React.Fragment>
         )
     }
@@ -21,8 +22,8 @@ class HomePage extends Component{
 
 const mapStateToProps = (state) => {
     return{
-        details: state.showDetail
+        shows: state.showList
     }
 }
 
-export default connect(mapStateToProps,{ getshow })(HomePage)
+export default connect(mapStateToProps,{ getshowlist })(HomePage)

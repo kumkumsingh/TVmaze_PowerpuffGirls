@@ -1,8 +1,8 @@
-import { EPISODE_LIST } from '../actions/actions';
+import {SHOW_DETAILS} from '../actions/actions';
 
-const reducer = (state = [], action = {}) => {
+const reducer = (state = {}, action = {}) => {
    switch(action.type){
-        case EPISODE_LIST:
+        case SHOW_DETAILS:
             return action.payload
         default:
             return state

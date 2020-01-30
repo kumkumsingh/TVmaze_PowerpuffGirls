@@ -1,43 +1,30 @@
-import React, { Component } from 'react';
-import { episodedetail } from '../actions/actions'
+import React, { Component } from 'react'
+import { getEpisodeDetail } from '../actions/actions';
 import { connect } from 'react-redux';
 import ReactHtmlParser from 'react-html-parser';
+import { Button } from '@material-ui/core';
 
-class EpisodeDetailPage extends Component{
+class EpisodeDetailpage extends Component{
 
     componentDidMount(){
-        this.props.episodedetail(Number(this.props.match.params.id))
-    }
-
-
-    handleEvent = (event) => {
-        event.preventDefault();
-        this.props.history.push('/')
+        this.props.getEpisodeDetail(Number(this.props.match.params.id))
     }
 
     render(){
-       return(
-           <React.Fragment>
-              {this.props.episodedetails.map(episode => {
-                  return (
-                      <React.Fragment>
-                            <h3>{episode.name}</h3>
-                            {episode.image && <img src={episode.image.medium} />}
-                            <div>{ ReactHtmlParser(episode.summary) }</div>
-                      </React.Fragment>
-                  )
-              })}
-             <button onClick={this.handleEvent}>Go Back TO Show</button>
-           </React.Fragment>
-       )
+        return(
+            <div>
+              {this.props.episodeDetails && <h3>{this.props.episodeDetails.name}</h3>}
+              {this.props.episodeDetails.image && <img src={this.props.episodeDetails.image.original}></img>} 
+              <div>{ ReactHtmlParser(this.props.episodeDetails.summary) }</div>
+            </div>
+        )
     }
 }
-
 const mapStateToProps = (state) => {
-    console.log("state", state)
+    console.log('episodeDetails',state)
     return{
-        episodedetails : state.episodeList
+        episodeDetails: state.episodeDetails
     }
 }
 
-export default connect(mapStateToProps, { episodedetail })(EpisodeDetailPage)
+export default connect(mapStateToProps,{ getEpisodeDetail })(EpisodeDetailpage)

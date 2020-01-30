@@ -6,20 +6,13 @@ import EpisodeListPage from './EpisodeListPage';
 
 class SeasonsListPage extends Component{
 
-    state = {
-        setOpen: false,
-
-    }
-
     componentDidMount(){
         this.props.getseason(this.props.id)
     }
 
 
     handleClickOpen = (seasonid) => {
-        this.setState({
-            setOpen: true
-        })
+        console.log("seasonid",seasonid)
         this.props.getepisodelist(seasonid)
     }
 
@@ -31,11 +24,9 @@ class SeasonsListPage extends Component{
                                 <Button variant="outlined" color="primary" onClick={() => this.handleClickOpen(season.id)}>
                                     Season {index+1}
                                 </Button>
-                                
                             </React.Fragment>
-                   
                })}
-              <EpisodeListPage />
+              <EpisodeListPage episodes={this.props.episodes}/>
             </React.Fragment>
             
         )
@@ -44,7 +35,8 @@ class SeasonsListPage extends Component{
 
 const mapStateToProps = (state) => {
     return{
-        seasons: state.seasonList
+        seasons: state.seasonList,
+        episodes: state.episodeList
     }
 }
 

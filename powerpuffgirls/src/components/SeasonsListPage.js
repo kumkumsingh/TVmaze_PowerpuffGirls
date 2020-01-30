@@ -7,6 +7,7 @@ import EpisodeListPage from './EpisodeListPage';
 class SeasonsListPage extends Component{
 
     componentDidMount(){
+        console.log("season", this.props.id)
         this.props.getseason(this.props.id)
     }
 

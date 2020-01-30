@@ -11,12 +11,13 @@ class ShowDetailPage extends Component{
     }
 
     render(){
+        console.log("hello",this.props.detail)
         return(
             <React.Fragment>
                <h2>{this.props.detail.name}</h2>
                {this.props.detail.image && <img src={this.props.detail.image.original} width='200px' height='300px'></img>}
                <div>{ ReactHtmlParser(this.props.detail.summary) }</div>
-               {this.props.detail.id && <SeasonsListPage id={this.props.detail.id} />}
+               {this.props.detail.id && <SeasonsListPage id={Number(this.props.match.params.id)} />}
             </React.Fragment>
         )
     }

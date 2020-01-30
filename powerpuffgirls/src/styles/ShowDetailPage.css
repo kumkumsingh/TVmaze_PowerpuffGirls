@@ -1,0 +1,18 @@
+img{
+  display: block;
+  margin: 0 auto;
+  border:2px solid black;
+  box-shadow: 10px 5px 5px black;
+  border-radius: 25px;
+}
+
+h2{
+    font-style: italic;
+    color: black;
+}
+
+.summary{
+    justify-content: center;
+    text-align: center;
+    color: black;
+}

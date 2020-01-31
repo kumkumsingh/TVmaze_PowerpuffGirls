@@ -29,7 +29,7 @@
 1. The name of the show.
 2. The image of the show.
 3. The summary of the show.
-4. List of avialable seasons are displayed as a button.
+4. List of available seasons are displayed as a button.
 5. List of episodes when clicked on a season in pagination format.
 
 #### Episode Detail Page - Features
@@ -45,9 +45,9 @@
       
       `git clone https://github.com/nirustanite/TVmaze_PowerpuffGirls.git`
       
-2. cd to the folder TVmaze_PowerpuffGirls/powerpuffgirls.
+2. cd to the folder powerpuffgirls.
 
-      `cd Tvmaze_PowerpuffGirls/powerpuffgirls`
+      `cd powerpuffgirls`
     
 <a name="installations"></a>
 #### Installation

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { getEpisodeDetail } from '../actions/actions';
 import { connect } from 'react-redux';
 import ReactHtmlParser from 'react-html-parser';
-import { Button } from '@material-ui/core';
+import '../styles/DetailPage.css';
 
 class EpisodeDetailpage extends Component{
 
@@ -12,11 +12,13 @@ class EpisodeDetailpage extends Component{
 
     render(){
         return(
-            <div>
-              {this.props.episodeDetails && <h3>{this.props.episodeDetails.name}</h3>}
-              {this.props.episodeDetails.image && <img src={this.props.episodeDetails.image.original}></img>} 
-              <div>{ ReactHtmlParser(this.props.episodeDetails.summary) }</div>
-            </div>
+            <React.Fragment>
+              {this.props.episodeDetails && <h2>{this.props.episodeDetails.name}</h2>}
+              {this.props.episodeDetails.image && <img src={this.props.episodeDetails.image.original} alt='Not Available'></img>} 
+              <div className='summary'>
+                { ReactHtmlParser(this.props.episodeDetails.summary) }
+              </div>
+            </React.Fragment>
         )
     }
 }

@@ -1,3 +1,5 @@
+//combing all the reducers
+
 import { combineReducers } from 'redux';
 import showDetails from './showDetails';
 import episodeList from './episodeList';

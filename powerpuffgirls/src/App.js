@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
-import EpisodeDetailPage from './components/EpisodeDetailPage'
+import EpisodeDetailPage from './components/EpisodeDetailPage';
 import ShowDetailPage from './components/ShowDetailPage';
 import './styles/App.css';
 
+// Routing for three pages
 function App() {
   return (
       <div className='App-header'> 

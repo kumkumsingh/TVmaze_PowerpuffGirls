@@ -1,14 +1,14 @@
 import request from 'superagent';
 import { url } from '../constants';
 
-export const API_LOADING = "@API/LOADING";
-export const API_DONE = "@API/DONE";
-export const API_ERROR = "@API/ERROR";
+export const API_LOADING = '@API/LOADING';
+export const API_DONE = '@API/DONE';
+export const API_ERROR = '@API/ERROR';
 
 const defaults = {
   apiCall: true,
-  method: "get",
-  path: "/",
+  method: 'get',
+  path: '/',
   body: null,
   loadingType: API_LOADING,
   errorType: API_ERROR,
@@ -30,6 +30,7 @@ export default store => next => action => {
     request: requestAction,
   });
 
+  // making a request to the Api
   request[method](`${url}${path}`)
     .send(body)
     .then(response => {

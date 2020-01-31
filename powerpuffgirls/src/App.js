@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import EpisodeDetailPage from './components/EpisodeDetailPage'
 import ShowDetailPage from './components/ShowDetailPage';
-import './App.css'
+import './styles/App.css';
 
 function App() {
   return (

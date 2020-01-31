@@ -1,3 +1,5 @@
+// Stores the list of episodes in the state
+
 import { EPISODE_LIST } from '../actions/actions';
 
 const reducer = (state = [], action = {}) => {

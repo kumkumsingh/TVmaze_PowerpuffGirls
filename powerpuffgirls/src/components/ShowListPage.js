@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -9,6 +9,7 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
+// defining styles when Material UI is used
 const useStyles = makeStyles(theme => ({
     cardGrid: {
       paddingTop: theme.spacing(8),
@@ -27,7 +28,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-
+// renders the list of shows in a Grid Format
 export default function ShowListPage(props){
     const classes = useStyles();
     return(

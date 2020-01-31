@@ -1,3 +1,5 @@
+//Stores the details of the episode in the state
+
 import {EPISODE_DETAILS} from '../actions/actions';
 
 const reducer = (state = {}, action = {}) => {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { getseason, getepisodelist } from '../actions/actions';
+import { getseasons, getepisodelist } from '../actions/actions';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import EpisodeListPage from './EpisodeListPage';
@@ -15,19 +15,24 @@ const useStyles = theme => ({
   });
 
 
+// List all the seasons 
 class SeasonsListPage extends Component{
 
+    /*
+      ComponentDidMount() is invoked after a component is mounted
+      Calling an action getseasons with the show id
+    */
     componentDidMount(){
-        console.log("season", this.props.id)
-        this.props.getseason(this.props.id)
+        this.props.getseasons(this.props.id)
     }
 
-
+    // handle click event of the button
+    // Calling the list of episode by passing season id 
     handleClickOpen = (seasonid) => {
-        console.log("seasonid",seasonid)
         this.props.getepisodelist(seasonid)
     }
 
+    // renders list of seasons
     render(){
         const { classes } = this.props;
         return(
@@ -51,6 +56,9 @@ class SeasonsListPage extends Component{
     }
 }
 
+// mapStateToProps is used for selecting part of data from the store. 
+// fetching season list and episode list from the store
+
 const mapStateToProps = (state) => {
     return{
         seasons: state.seasonList,
@@ -58,4 +66,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { getseason, getepisodelist })(withStyles(useStyles)(SeasonsListPage))
+// connect() function connects a Component with the redux store
+// withStyles is used to make styles available for Class Componenet when using materialUI
+export default connect(mapStateToProps, { getseasons, getepisodelist })(withStyles(useStyles)(SeasonsListPage))

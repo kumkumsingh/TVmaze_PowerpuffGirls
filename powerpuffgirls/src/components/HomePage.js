@@ -2,15 +2,20 @@ import React, { Component } from 'react';
 import { getshowlist } from '../actions/actions'; 
 import { connect } from 'react-redux';
 import ShowListPage from './ShowListPage'; 
-import {showName} from '../constants';
-import '../styles/HomePage.css'
+import { showName } from '../constants';
+import '../styles/HomePage.css';
 
+ // Initial start of the page where it renders the List of Shows
 class HomePage extends Component{
 
+    /*ComponentDidMount() is invoked after a component is mounted
+      Calling an action getshowlist() with the showName
+    */
     componentDidMount(){
         this.props.getshowlist(showName);
     }
 
+    // renders the page and passes the list of shows as props to the ShowList Component
     render(){
         return(
             <React.Fragment>
@@ -22,6 +27,8 @@ class HomePage extends Component{
     }
 }
 
+// mapStateToProps is used for selectinga part of data from the store. 
+// fetching list of shows from the store
 
 const mapStateToProps = (state) => {
     return{
@@ -29,4 +36,5 @@ const mapStateToProps = (state) => {
     }
 }
 
+// connect() function connects a Component with the redux store
 export default connect(mapStateToProps,{ getshowlist })(HomePage)

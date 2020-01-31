@@ -1,3 +1,5 @@
+// stores the list of shows in the state
+
 import { SHOW_LIST } from '../actions/actions';
 
 const reducer = (state = [], action = {}) => {

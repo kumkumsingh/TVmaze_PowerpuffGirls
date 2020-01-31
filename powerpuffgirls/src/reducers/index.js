@@ -6,9 +6,9 @@ import episodeDetails from './episodeDetails';
 import showList from './showList';
 
 export default combineReducers({
+  showList,
   showDetails,
   episodeList,
   seasonList,
   episodeDetails,
-  showList
 })

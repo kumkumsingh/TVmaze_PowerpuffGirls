@@ -20,9 +20,9 @@ export default function EpisodeListPage(props) {
 
     return (
         <React.Fragment>
-            {props.episodes && currentData.map(episode => {
-               return <ul className='list'>
-                        <li key={episode.id}>
+            {props.episodes && currentData.map((episode,index) => {
+               return <ul className='list' key={index}>
+                        <li key={index}>
                             <Link to={`/episode/${episode.id}`}>
                                 {episode.name}
                             </Link>

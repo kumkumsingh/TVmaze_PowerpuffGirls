@@ -15,7 +15,7 @@ class HomePage extends Component{
         return(
             <React.Fragment>
                 <h3>Welcome</h3>
-                <p>Pick a show from the list of shows Given below. Click on <b>Watch Now</b> to reveal Seasons</p>
+                <p>Pick a show from the list of shows given below. Click on <b>Watch Now</b> to reveal Seasons</p>
                 <ShowListPage shows={this.props.shows} />
             </React.Fragment>
         )

@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import EpisodeListPage from './EpisodeListPage';
 import { withStyles } from '@material-ui/core/styles';
-import '../styles/SeasonsListPage.css'
+import '../styles/SeasonsListPage.css';
 
 const useStyles = theme => ({
     root: {
@@ -33,10 +33,11 @@ class SeasonsListPage extends Component{
         return(
             <React.Fragment>
                <p>Click on a season to view episodes</p>
+               <p>Click on a episode name to view the details</p>
                <div className='container'>
                {this.props.seasons && this.props.seasons.map((season, index) => {
-                   return  <div className={classes.root}>
-                            <Button key={index} variant='contained' color='primary' onClick={() => this.handleClickOpen(season.id)}>
+                   return  <div className={classes.root} key={index}>
+                            <Button variant='contained' color='primary' onClick={() => this.handleClickOpen(season.id)}>
                                  Season {index+1}
                             </Button>
                            </div>

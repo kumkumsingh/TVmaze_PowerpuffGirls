@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
+import {Link} from 'react-router-dom';
 import Container from '@material-ui/core/Container';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -48,7 +48,7 @@ export default function ShowListPage(props){
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Link href={`/show/${show.show.id}`} variant='body2'>
+                                <Link to={`/show/${show.show.id}`} variant='body2'>
                                     {'Watch Now'}
                                 </Link>
                             </CardActions>

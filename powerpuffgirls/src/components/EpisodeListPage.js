@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Paginator from 'react-hooks-paginator';
+import '../styles/EpisodeListPage.css';
 
 export default function EpisodeListPage(props) {
     const pageLimit = 5    
@@ -20,11 +21,13 @@ export default function EpisodeListPage(props) {
     return (
         <React.Fragment>
             {props.episodes && currentData.map(episode => {
-               return <li key={episode.id}>
-                        <Link to={`/episode/${episode.id}`}>
-                            {episode.name}
-                        </Link>
-                </li>
+               return <ul className='list'>
+                        <li key={episode.id}>
+                            <Link to={`/episode/${episode.id}`}>
+                                {episode.name}
+                            </Link>
+                        </li>
+                    </ul>
 
             })}
 

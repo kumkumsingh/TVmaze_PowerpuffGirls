@@ -32,7 +32,7 @@ export default function ShowListPage(props){
     const classes = useStyles();
     return(
         <React.Fragment>
-            <Container className={classes.cardGrid} maxWidth="md">
+            <Container className={classes.cardGrid} maxWidth='md'>
                 <Grid container spacing={4}>
                     {props.shows && props.shows.map(show => (
                     <Grid item key={show.show.id} xs={12} sm={6} md={4}>
@@ -40,16 +40,16 @@ export default function ShowListPage(props){
                             {show.show.image &&  <CardMedia
                                                    className={classes.cardMedia}
                                                    image={show.show.image.medium}
-                                                   title="Show"
+                                                   title='Show'
                             />}
                             <CardContent className={classes.cardContent}>
-                                <Typography gutterBottom variant="h6" component="h6">
+                                <Typography gutterBottom variant='h6' component='h6'>
                                     Name : {show.show.name}
                                 </Typography>
                             </CardContent>
                             <CardActions>
-                                <Link href={`/show/${show.show.id}`} variant="body2">
-                                    {"View"}
+                                <Link href={`/show/${show.show.id}`} variant='body2'>
+                                    {'Watch Now'}
                                 </Link>
                             </CardActions>
                         </Card>

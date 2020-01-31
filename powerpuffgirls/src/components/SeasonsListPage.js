@@ -3,6 +3,17 @@ import { getseason, getepisodelist } from '../actions/actions';
 import { connect } from 'react-redux';
 import Button from '@material-ui/core/Button';
 import EpisodeListPage from './EpisodeListPage';
+import { withStyles } from '@material-ui/core/styles';
+import '../styles/SeasonsListPage.css'
+
+const useStyles = theme => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+      },
+    },
+  });
+
 
 class SeasonsListPage extends Component{
 
@@ -18,15 +29,20 @@ class SeasonsListPage extends Component{
     }
 
     render(){
+        const { classes } = this.props;
         return(
             <React.Fragment>
+               <p>Click on a season to view episodes</p>
+               <div className='container'>
                {this.props.seasons && this.props.seasons.map((season, index) => {
-                   return <React.Fragment>
-                                <Button variant="contained" color="primary" onClick={() => this.handleClickOpen(season.id)}>
-                                    Season {index+1}
-                                </Button>
-                            </React.Fragment>
+                   return  <div className={classes.root}>
+                            <Button key={index} variant='contained' color='primary' onClick={() => this.handleClickOpen(season.id)}>
+                                 Season {index+1}
+                            </Button>
+                           </div>
+                            
                })}
+              </div>
               <EpisodeListPage episodes={this.props.episodes}/>
             </React.Fragment>
             
@@ -41,4 +57,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { getseason, getepisodelist })(SeasonsListPage)
+export default connect(mapStateToProps, { getseason, getepisodelist })(withStyles(useStyles)(SeasonsListPage))

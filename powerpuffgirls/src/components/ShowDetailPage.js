@@ -3,7 +3,7 @@ import ReactHtmlParser from 'react-html-parser';
 import SeasonsListPage from './SeasonsListPage';
 import { connect } from 'react-redux';
 import { getshowdetail } from '../actions/actions';
-import '../styles/ShowDetailPage.css'
+import '../styles/DetailPage.css'
 
 class ShowDetailPage extends Component{
     componentDidMount(){
@@ -15,7 +15,7 @@ class ShowDetailPage extends Component{
         return(
             <React.Fragment>
                <h2>{this.props.detail.name}</h2>
-               {this.props.detail.image && <img src={this.props.detail.image.original} width='200px' height='300px'></img>}
+               {this.props.detail.image && <img src={this.props.detail.image.original} alt='Not Available'></img>}
                <div className="summary">
                  { ReactHtmlParser(this.props.detail.summary) }
                </div>
